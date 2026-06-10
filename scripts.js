@@ -9,13 +9,13 @@ function getComputerChoice() {
     let computerNumber = Math.floor(Math.random() * 3) + 1;
 
     if (computerNumber === 1) {
-        return `The computer chose rock!`;
+        return `rock`;
     }
     else if (computerNumber === 2) {
-        return `The computer chose paper!`;
+        return `paper`;
     }
     else {
-        return `The computer chose scissors!`;
+        return `scissors`;
     }
 }
 
@@ -25,11 +25,14 @@ function getComputerChoice() {
 // then we want to make sure their input is in lower case so there aren't any issues with case sensitivity
 // then we want to store that in a variable that the function returns that can be passed as a parameter later on
 // We also want to make sure the prompt retriggers when the old prompt is closed so we will need to add a javascript event listener
+// After some debugging, it is clear that the rerun of the game is not working. 
+// I am going to add an if else statement that checks whether input has been defined to try and solve this issue.
+// It seems the getHumanChoice function was not the issue
 
 function getHumanChoice() {
     let input = prompt("Rock, paper, or scissors?");
-    let inputLowerCase = input.toLowerCase();
-    return inputLowerCase
+        let inputLowerCase = input.toLowerCase();
+        return inputLowerCase
 }
 
 let humanScore = 0;
@@ -42,7 +45,11 @@ let computerScore = 0;
 // there will need to be if, else statements to account for all of these possibilities
 // we also need to use += to increase the scores of either player depending on what they play
 
-function playRound(humanChoice, computerChoice) {
+
+function playRound() {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+
     if (humanChoice === 'rock' && computerChoice === "paper") {
         computerScore += 1;
         return `You played rock and computer played paper. Computer wins! Current score is human, ${humanScore}, computer, ${computerScore}!`
@@ -76,8 +83,7 @@ function playRound(humanChoice, computerChoice) {
         humanScore += 1;
         return `You played paper and computer played paper. You win! Current score is human, ${humanScore}, computer, ${computerScore}!`
     }
+
 }
 
-// console.log(getComputerChoice())
-console.log(getHumanChoice())
-// console.log(playRound(getHumanChoice(), getComputerChoice()))
+console.log(playRound());
