@@ -86,4 +86,25 @@ function playRound() {
 
 }
 
-console.log(playRound());
+// Now we need to play a five round game and see who wins!
+// A for loop would work well for this
+// We start with i = 0
+// For i < 5, i++, the function playround is called
+// If, at the end of five loops, humanScore is > computerScore, player is the winner, and vice versa
+
+function playGame() {
+
+    for (i = 0; i < 5; i++) {
+        playRound();
+    };
+
+    if (humanScore < computerScore) {
+        return `You have lost to the computer! The final score was human ${humanScore}, computer ${computerScore}.`
+    }
+
+    else if (humanScore > computerScore) {
+        return `You have beaten the computer! The final score was human ${humanScore}, computer ${computerScore}.`
+    }
+}
+
+console.log(playGame());
