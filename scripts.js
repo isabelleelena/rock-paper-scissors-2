@@ -133,6 +133,7 @@ paperButton.addEventListener("click", (event) => {
     let humanChoice = "paper";
 
     if (computerChoice === "paper") {
+
         if (humanScore === 5) {
         return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
         }
@@ -145,6 +146,7 @@ paperButton.addEventListener("click", (event) => {
     }
     else if (computerChoice === "scissors") {
         computerScore += 1;
+
         if (humanScore === 5) {
         return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
         }
@@ -155,8 +157,10 @@ paperButton.addEventListener("click", (event) => {
         return tally.textContent = `You played paper and computer played scissors. Computer wins! Current score is human, ${humanScore}, computer, ${computerScore}!`;
         }
     }
+
     else if (computerChoice === "rock") {
         humanScore += 1;
+
         if (humanScore === 5) {
         return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
         }
@@ -180,6 +184,7 @@ scissorsButton.addEventListener("click", (event) => {
 
     if (computerChoice === "paper") {
         humanScore += 1;
+
         if (humanScore === 5) {
         return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
         }
@@ -191,6 +196,7 @@ scissorsButton.addEventListener("click", (event) => {
         }
     }
     else if (computerChoice === "scissors") {
+
         if (humanScore === 5) {
         return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
         }
@@ -203,6 +209,7 @@ scissorsButton.addEventListener("click", (event) => {
     }
     else if (computerChoice === "rock") {
         computerScore += 1;
+        
         if (humanScore === 5) {
         return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
         }
