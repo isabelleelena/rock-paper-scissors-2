@@ -45,47 +45,6 @@ let computerScore = 0;
 // there will need to be if, else statements to account for all of these possibilities
 // we also need to use += to increase the scores of either player depending on what they play
 
-
-function playRound() {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-
-    if (humanChoice === 'rock' && computerChoice === "paper") {
-        computerScore += 1;
-        return `You played rock and computer played paper. Computer wins! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-    else if (humanChoice === 'rock' && computerChoice === "scissors") {
-        humanScore += 1;
-        return `You played rock and computer played scissors. You win! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-    else if (humanChoice === 'rock' && computerChoice === "rock") {
-        return `You played rock and computer played rock. It's a draw! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-    else if (humanChoice === 'paper' && computerChoice === "rock") {
-        humanScore += 1;
-        return `You played paper and computer played rock. You win! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-    else if (humanChoice === 'paper' && computerChoice === "scissors") {
-        computerScore += 1;
-        return `You played paper and computer played scissors. Computer wins! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-    else if (humanChoice === 'paper' && computerChoice === "paper") {
-        return `You played paper and computer played paper. It's a draw! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-    else if (humanChoice === 'scissors' && computerChoice === "rock") {
-        computerScore += 1;
-        return `You played scissors and computer played rock. Computer wins! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-    else if (humanChoice === 'scissors' && computerChoice === "scissors") {
-        return `You played paper and computer played scissors. It's a draw! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-    else if (humanChoice === 'scissors' && computerChoice === "paper") {
-        humanScore += 1;
-        return `You played paper and computer played paper. You win! Current score is human, ${humanScore}, computer, ${computerScore}!`
-    }
-
-}
-
 // Now we need to play a five round game and see who wins!
 // A for loop would work well for this
 // We start with i = 0
@@ -107,4 +66,152 @@ function playGame() {
     }
 }
 
-console.log(playGame());
+// console.log(playGame());
+
+let rockButton = document.querySelector(".r-button");
+let paperButton = document.querySelector(".p-button");
+let scissorsButton = document.querySelector(".s-button");
+let tally = document.querySelector(".tally");
+
+function checkScore () {
+    
+}
+
+rockButton.addEventListener("click", (event) => {
+
+    let computerChoice = getComputerChoice();
+    let humanChoice = "rock";
+
+    if (computerChoice === "paper") {
+        computerScore += 1;
+
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played rock and computer played paper. Computer wins! Current score is human, ${humanScore}, computer, ${computerScore}!`;
+        }
+    }
+    else if (computerChoice === "scissors") {
+        humanScore += 1;
+
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played rock and computer played scissors. You win! Current score is human, ${humanScore}, computer, ${computerScore}!`;
+        }
+    }
+    else if (computerChoice === "rock") {
+
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played rock and computer played rock. It's a draw! Current score is human, ${humanScore}, computer, ${computerScore}!`;
+        }
+    }
+
+    
+    
+});
+
+
+
+paperButton.addEventListener("click", (event) => {
+
+    let computerChoice = getComputerChoice();
+    let humanChoice = "paper";
+
+    if (computerChoice === "paper") {
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played paper and computer played paper. It's a draw! Current score is human, ${humanScore}, computer, ${computerScore}!`;
+        }
+    }
+    else if (computerChoice === "scissors") {
+        computerScore += 1;
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played paper and computer played scissors. Computer wins! Current score is human, ${humanScore}, computer, ${computerScore}!`;
+        }
+    }
+    else if (computerChoice === "rock") {
+        humanScore += 1;
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played paper and computer played rock. You win! Current score is human, ${humanScore}, computer, ${computerScore}!`;
+        }
+    }
+    
+});
+;
+
+
+
+scissorsButton.addEventListener("click", (event) => {
+
+    let computerChoice = getComputerChoice();
+    let humanChoice = "scissors";
+
+    if (computerChoice === "paper") {
+        humanScore += 1;
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played scissors and computer played paper. You win! Current score is human, ${humanScore}, computer, ${computerScore}!`;
+        }
+    }
+    else if (computerChoice === "scissors") {
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played scissors and computer played scissors. It's a draw! Current score is human, ${humanScore}, computer, ${computerScore}!`; 
+        }
+    }
+    else if (computerChoice === "rock") {
+        computerScore += 1;
+        if (humanScore === 5) {
+        return tally.textContent = `Congratulations! You were the first to five points. You are the ultimate winner! Refresh the screen to start again.`
+        }
+        else if (computerScore === 5) {
+        return tally.textContent = `Oh no, computer was the first to five points. Better luck next time! Refresh the screen to start again.`
+        }
+        else {
+        return tally.textContent = `You played scissors and computer played rock. Computer wins! Current score is human, ${humanScore}, computer, ${computerScore}!`;
+        }
+    }
+
+});
