@@ -1,3 +1,14 @@
+/* 
+Colour Palette: 
+Darkest pink: #F9C7D4
+light pink: #F7E0E4
+Darkest green: #859E91
+Darker Green: #567866
+Mid green: #99AC73
+Lightest green: #C3D0A8
+Cream: #F0EEE2
+*/
+
 @keyframes wiggle {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(-10deg); }
@@ -14,19 +25,30 @@ html {
 }
 
 body {
+    background-color: #F9C7D4;
+    color: #859E91;
+}
+
+.content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #fcebed;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: -30px -30px 0px #f7d8dd;
 }
 
 img {
     width: 100px;
+    filter: invert(47%) sepia(9%) saturate(1137%) hue-rotate(96deg) brightness(89%) contrast(83%);
 }
 
 .buttons {
     display: flex;
     gap: 50px;   
+    margin: 15px;
 }
 
 button {
@@ -37,15 +59,17 @@ button {
 }
 
 h1 {
-    margin: 0px;
+    margin: 15px;
     font-size: 50px;
     font-family: sans-serif;
 }
 
 p {
-    margin: 0px;
+    margin: 15px;
     font-size: 30px;
     font-family: sans-serif;
+    width: 616px;
+    text-align: center;
 }
 
 button:hover {
